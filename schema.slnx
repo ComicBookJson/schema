@@ -8,6 +8,9 @@
   <Folder Name="/schema/.github/workflows/">
     <File Path=".github/workflows/integration-delivery.yml" />
   </Folder>
+  <Folder Name="/schema/scripts/">
+    <File Path="scripts/tag.ps1" />
+  </Folder>
   <Folder Name="/schema/src/">
     <Project Path="src/schema/schema.csproj" />
   </Folder>
