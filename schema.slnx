@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/schema/">
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/schema/.github/" />
+  <Folder Name="/schema/.github/workflows/">
+    <File Path=".github/workflows/integration-delivery.yml" />
+  </Folder>
+  <Folder Name="/schema/src/">
+    <Project Path="src/schema/schema.csproj" />
+  </Folder>
+</Solution>

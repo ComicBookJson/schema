@@ -1,0 +1,62 @@
+@page "/versions/{SchemaFile}"
+
+<MudContainer MaxWidth="MaxWidth.Large" Class="mt-8 mb-16">
+    <MudBreadcrumbs Items="_breadcrumbs" Class="px-0 mb-4" />
+
+    <MudText Typo="Typo.h3" Color="Color.Primary" Class="mb-2">Schema Version</MudText>
+    <MudText Typo="Typo.subtitle1" Class="mb-8">Technical data for: <b>@SchemaFile</b></MudText>
+
+    @if (SchemaFile.Equals("cbjz-v1.schema.json", StringComparison.OrdinalIgnoreCase))
+    {
+        <MudAlert Severity="Severity.Info" Class="mb-6">
+            Version 1 focuses on basic structuring, standardized metadata, chapters, and the introduction of the <b>Spatial
+            Tags</b> system (relative coordinates).
+        </MudAlert>
+
+        <MudExpansionPanels MultiExpansion="true">
+            <MudExpansionPanel Text="Main Object (Document)">
+                <MudText Typo="Typo.body2">
+                    The document root requires three basic properties: <code>version</code>, <code>metadata</code>, and a
+                    list of <code>pages</code>.
+                </MudText>
+            </MudExpansionPanel>
+
+            <MudExpansionPanel Text="CbjMetadata & Indexing">
+                <MudText Typo="Typo.body2" Class="mb-2">
+                    The metadata node supports summarization, a list of creators, and a global dictionary of **Tags** and
+                    **Chapters** to facilitate the creation of indices in the reader.
+                </MudText>
+            </MudExpansionPanel>
+
+            <MudExpansionPanel Text="CbjPage & CbjTagPosition">
+                <MudText Typo="Typo.body2" Class="mb-2">
+                    The pages contain the Base64 image and the <code>pageTags</code> array. Each tag on the page is
+                    annotated with <code>X</code> and <code>Y</code> coordinates (floating-point values ​​from 0.0 to 1.0)
+                    indicating the tag's relative position within the image, enabling interactive panels.
+                </MudText>
+            </MudExpansionPanel>
+        </MudExpansionPanels>
+
+        <MudButton Href="/versions/cbjz-v1.schema.json" Target="_blank" Variant="Variant.Text" Color="Color.Primary" Class="mt-6" StartIcon="@Icons.Material.Filled.Code">
+            Open raw JSON file
+        </MudButton>
+    }
+    else
+    {
+        <MudAlert Severity="Severity.Warning">
+            Documentation for schema file "@SchemaFile" not found or not yet documented.
+        </MudAlert>
+    }
+
+</MudContainer>
+
+@code {
+    [Parameter]
+    public string SchemaFile { get; set; } = string.Empty;
+
+    private List<BreadcrumbItem> _breadcrumbs = new List<BreadcrumbItem>
+    {
+        new BreadcrumbItem("Home", href: "/"),
+        new BreadcrumbItem("Versions", href: null, disabled: true)
+    };
+}
