@@ -1,0 +1,299 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://ComicBookJson.github.io/schema/versions/cbj-v1.schema.json",
+    "title": "ComicInfo 2.1 JSON Schema",
+    "description": "JSON representation of the ComicInfo 2.1 model, adapted from the ComicInfo 2.1 XSD. ComicPageInfo additionally requires ImageBase64 to store the page image directly in the JSON document.",
+    "type": "object",
+    "properties": {
+        "Title": {
+            "type": "string",
+            "default": ""
+        },
+        "Series": {
+            "type": "string",
+            "default": ""
+        },
+        "Number": {
+            "type": "string",
+            "default": ""
+        },
+        "Count": {
+            "type": "integer",
+            "default": -1
+        },
+        "Volume": {
+            "type": "integer",
+            "default": -1
+        },
+        "AlternateSeries": {
+            "type": "string",
+            "default": ""
+        },
+        "AlternateNumber": {
+            "type": "string",
+            "default": ""
+        },
+        "AlternateCount": {
+            "type": "integer",
+            "default": -1
+        },
+        "Summary": {
+            "type": "string",
+            "default": ""
+        },
+        "Notes": {
+            "type": "string",
+            "default": ""
+        },
+        "Year": {
+            "type": "integer",
+            "default": -1
+        },
+        "Month": {
+            "type": "integer",
+            "default": -1
+        },
+        "Day": {
+            "type": "integer",
+            "default": -1
+        },
+        "Writer": {
+            "type": "string",
+            "default": ""
+        },
+        "Penciller": {
+            "type": "string",
+            "default": ""
+        },
+        "Inker": {
+            "type": "string",
+            "default": ""
+        },
+        "Colorist": {
+            "type": "string",
+            "default": ""
+        },
+        "Letterer": {
+            "type": "string",
+            "default": ""
+        },
+        "CoverArtist": {
+            "type": "string",
+            "default": ""
+        },
+        "Editor": {
+            "type": "string",
+            "default": ""
+        },
+        "Translator": {
+            "type": "string",
+            "default": ""
+        },
+        "Publisher": {
+            "type": "string",
+            "default": ""
+        },
+        "Imprint": {
+            "type": "string",
+            "default": ""
+        },
+        "Genre": {
+            "type": "string",
+            "default": ""
+        },
+        "Tags": {
+            "type": "string",
+            "default": ""
+        },
+        "Web": {
+            "type": "string",
+            "default": ""
+        },
+        "PageCount": {
+            "type": "integer",
+            "default": 0
+        },
+        "LanguageISO": {
+            "type": "string",
+            "default": ""
+        },
+        "Format": {
+            "type": "string",
+            "default": ""
+        },
+        "BlackAndWhite": {
+            "$ref": "#/$defs/YesNo",
+            "default": "Unknown"
+        },
+        "Manga": {
+            "$ref": "#/$defs/Manga",
+            "default": "Unknown"
+        },
+        "Characters": {
+            "type": "string",
+            "default": ""
+        },
+        "Teams": {
+            "type": "string",
+            "default": ""
+        },
+        "Locations": {
+            "type": "string",
+            "default": ""
+        },
+        "ScanInformation": {
+            "type": "string",
+            "default": ""
+        },
+        "StoryArc": {
+            "type": "string",
+            "default": ""
+        },
+        "StoryArcNumber": {
+            "type": "string",
+            "default": ""
+        },
+        "SeriesGroup": {
+            "type": "string",
+            "default": ""
+        },
+        "AgeRating": {
+            "$ref": "#/$defs/AgeRating",
+            "default": "Unknown"
+        },
+        "Pages": {
+            "$ref": "#/$defs/ArrayOfComicPageInfo"
+        },
+        "CommunityRating": {
+            "$ref": "#/$defs/Rating"
+        },
+        "MainCharacterOrTeam": {
+            "type": "string",
+            "default": ""
+        },
+        "Review": {
+            "type": "string",
+            "default": ""
+        },
+        "GTIN": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "$defs": {
+        "YesNo": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "No",
+                "Yes"
+            ]
+        },
+        "Manga": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "No",
+                "Yes",
+                "YesAndRightToLeft"
+            ]
+        },
+        "Rating": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5,
+            "multipleOf": 0.1
+        },
+        "AgeRating": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "Adults Only 18+",
+                "Early Childhood",
+                "Everyone",
+                "Everyone 10+",
+                "G",
+                "Kids to Adults",
+                "M",
+                "MA15+",
+                "Mature 17+",
+                "PG",
+                "R18+",
+                "Rating Pending",
+                "Teen",
+                "X18+"
+            ]
+        },
+        "ComicPageType": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "FrontCover",
+                    "InnerCover",
+                    "Roundup",
+                    "Story",
+                    "Advertisement",
+                    "Editorial",
+                    "Letters",
+                    "Preview",
+                    "BackCover",
+                    "Other",
+                    "Deleted"
+                ]
+            }
+        },
+        "ComicPageInfo": {
+            "type": "object",
+            "properties": {
+                "Image": {
+                    "type": "integer"
+                },
+                "Type": {
+                    "$ref": "#/$defs/ComicPageType",
+                    "default": [
+                        "Story"
+                    ]
+                },
+                "DoublePage": {
+                    "type": "boolean",
+                    "default": false
+                },
+                "ImageSize": {
+                    "type": "integer",
+                    "default": 0
+                },
+                "Key": {
+                    "type": "string",
+                    "default": ""
+                },
+                "Bookmark": {
+                    "type": "string",
+                    "default": ""
+                },
+                "ImageWidth": {
+                    "type": "integer",
+                    "default": -1
+                },
+                "ImageHeight": {
+                    "type": "integer",
+                    "default": -1
+                },
+                "ImageBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded page image data. This property is required by the ComicBookJson adaptation of ComicInfo 2.1."
+                }
+            },
+            "required": [
+                "Image",
+                "ImageBase64"
+            ]
+        },
+        "ArrayOfComicPageInfo": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/ComicPageInfo"
+            }
+        }
+    }
+}
