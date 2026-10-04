@@ -1,0 +1,358 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://ComicBookJson.github.io/schema/versions/cbj-v1.schema.json",
+    "title": "ComicInfo 2.1 JSON Schema",
+    "description": "JSON representation of the ComicInfo 2.1 model, adapted from the ComicInfo 2.1 XSD. Every schema element includes a description suitable for automatic class and attribute documentation. ComicPageInfo additionally requires ImageBase64 to store the page image directly in the JSON document.",
+    "type": "object",
+    "properties": {
+        "Title": {
+            "type": "string",
+            "default": "",
+            "description": "The title of the comic."
+        },
+        "Series": {
+            "type": "string",
+            "default": "",
+            "description": "The series name to which the comic belongs."
+        },
+        "Number": {
+            "type": "string",
+            "default": "",
+            "description": "The issue or volume number within the series."
+        },
+        "Count": {
+            "type": "integer",
+            "default": -1,
+            "description": "The total number of issues in the series or collection."
+        },
+        "Volume": {
+            "type": "integer",
+            "default": -1,
+            "description": "The volume number of the series."
+        },
+        "AlternateSeries": {
+            "type": "string",
+            "default": "",
+            "description": "An alternate series name for the comic."
+        },
+        "AlternateNumber": {
+            "type": "string",
+            "default": "",
+            "description": "The issue number in the alternate series."
+        },
+        "AlternateCount": {
+            "type": "integer",
+            "default": -1,
+            "description": "The total number of issues in the alternate series or collection."
+        },
+        "Summary": {
+            "type": "string",
+            "default": "",
+            "description": "A summary or synopsis of the comic."
+        },
+        "Notes": {
+            "type": "string",
+            "default": "",
+            "description": "Additional notes about the comic."
+        },
+        "Year": {
+            "type": "integer",
+            "default": -1,
+            "description": "The publication year of the comic."
+        },
+        "Month": {
+            "type": "integer",
+            "default": -1,
+            "description": "The publication month of the comic."
+        },
+        "Day": {
+            "type": "integer",
+            "default": -1,
+            "description": "The publication day of the comic."
+        },
+        "Writer": {
+            "type": "string",
+            "default": "",
+            "description": "The writer or writers of the comic."
+        },
+        "Penciller": {
+            "type": "string",
+            "default": "",
+            "description": "The penciller or pencillers of the comic."
+        },
+        "Inker": {
+            "type": "string",
+            "default": "",
+            "description": "The inker or inkers of the comic."
+        },
+        "Colorist": {
+            "type": "string",
+            "default": "",
+            "description": "The colorist or colorists of the comic."
+        },
+        "Letterer": {
+            "type": "string",
+            "default": "",
+            "description": "The letterer or letterers of the comic."
+        },
+        "CoverArtist": {
+            "type": "string",
+            "default": "",
+            "description": "The cover artist or cover artists of the comic."
+        },
+        "Editor": {
+            "type": "string",
+            "default": "",
+            "description": "The editor or editors of the comic."
+        },
+        "Translator": {
+            "type": "string",
+            "default": "",
+            "description": "The translator or translators of the comic."
+        },
+        "Publisher": {
+            "type": "string",
+            "default": "",
+            "description": "The publisher of the comic."
+        },
+        "Imprint": {
+            "type": "string",
+            "default": "",
+            "description": "The imprint under which the comic was published."
+        },
+        "Genre": {
+            "type": "string",
+            "default": "",
+            "description": "The genre or genres of the comic."
+        },
+        "Tags": {
+            "type": "string",
+            "default": "",
+            "description": "Tags describing the comic."
+        },
+        "Web": {
+            "type": "string",
+            "default": "",
+            "description": "A web URL associated with the comic."
+        },
+        "PageCount": {
+            "type": "integer",
+            "default": 0,
+            "description": "The number of pages in the comic."
+        },
+        "LanguageISO": {
+            "type": "string",
+            "default": "",
+            "description": "The ISO language code of the comic."
+        },
+        "Format": {
+            "type": "string",
+            "default": "",
+            "description": "The format or publication format of the comic."
+        },
+        "BlackAndWhite": {
+            "$ref": "#/$defs/YesNo",
+            "default": "Unknown",
+            "description": "Indicates whether the comic is black and white."
+        },
+        "Manga": {
+            "$ref": "#/$defs/Manga",
+            "default": "Unknown",
+            "description": "Indicates whether the comic is manga and, when applicable, whether it should be read right-to-left."
+        },
+        "Characters": {
+            "type": "string",
+            "default": "",
+            "description": "The characters appearing in the comic."
+        },
+        "Teams": {
+            "type": "string",
+            "default": "",
+            "description": "The teams appearing in the comic."
+        },
+        "Locations": {
+            "type": "string",
+            "default": "",
+            "description": "The locations appearing in the comic."
+        },
+        "ScanInformation": {
+            "type": "string",
+            "default": "",
+            "description": "Information about the scanning or digital source of the comic."
+        },
+        "StoryArc": {
+            "type": "string",
+            "default": "",
+            "description": "The story arc to which the comic belongs."
+        },
+        "StoryArcNumber": {
+            "type": "string",
+            "default": "",
+            "description": "The number of the comic within the story arc."
+        },
+        "SeriesGroup": {
+            "type": "string",
+            "default": "",
+            "description": "The group or collection associated with the series."
+        },
+        "AgeRating": {
+            "$ref": "#/$defs/AgeRating",
+            "default": "Unknown",
+            "description": "The age rating assigned to the comic."
+        },
+        "Pages": {
+            "$ref": "#/$defs/ArrayOfComicPageInfo",
+            "description": "The pages of the comic."
+        },
+        "CommunityRating": {
+            "$ref": "#/$defs/Rating",
+            "description": "The community rating of the comic."
+        },
+        "MainCharacterOrTeam": {
+            "type": "string",
+            "default": "",
+            "description": "The main character or team featured in the comic."
+        },
+        "Review": {
+            "type": "string",
+            "default": "",
+            "description": "A review of the comic."
+        },
+        "GTIN": {
+            "type": "string",
+            "default": "",
+            "description": "The Global Trade Item Number associated with the comic."
+        }
+    },
+    "$defs": {
+        "YesNo": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "No",
+                "Yes"
+            ],
+            "description": "Indicates whether a property is unknown, false, or true."
+        },
+        "Manga": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "No",
+                "Yes",
+                "YesAndRightToLeft"
+            ],
+            "description": "Indicates whether the comic is manga and supports a right-to-left reading mode."
+        },
+        "Rating": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 5,
+            "multipleOf": 0.1,
+            "description": "A community rating from 0 to 5, in increments of 0.1."
+        },
+        "AgeRating": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "Adults Only 18+",
+                "Early Childhood",
+                "Everyone",
+                "Everyone 10+",
+                "G",
+                "Kids to Adults",
+                "M",
+                "MA15+",
+                "Mature 17+",
+                "PG",
+                "R18+",
+                "Rating Pending",
+                "Teen",
+                "X18+"
+            ],
+            "description": "The age classification assigned to the comic."
+        },
+        "ComicPageType": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "FrontCover",
+                    "InnerCover",
+                    "Roundup",
+                    "Story",
+                    "Advertisement",
+                    "Editorial",
+                    "Letters",
+                    "Preview",
+                    "BackCover",
+                    "Other",
+                    "Deleted"
+                ]
+            },
+            "description": "The type or types assigned to a comic page."
+        },
+        "ComicPageInfo": {
+            "type": "object",
+            "properties": {
+                "Image": {
+                    "type": "integer",
+                    "description": "The zero-based index of the page image."
+                },
+                "Type": {
+                    "$ref": "#/$defs/ComicPageType",
+                    "default": [
+                        "Story"
+                    ],
+                    "description": "The type or types assigned to the page."
+                },
+                "DoublePage": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Indicates whether the page represents a double-page spread."
+                },
+                "ImageSize": {
+                    "type": "integer",
+                    "default": 0,
+                    "description": "The size of the page image in bytes."
+                },
+                "Key": {
+                    "type": "string",
+                    "default": "",
+                    "description": "A key identifying the page image."
+                },
+                "Bookmark": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The bookmark associated with the page."
+                },
+                "ImageWidth": {
+                    "type": "integer",
+                    "default": -1,
+                    "description": "The width of the page image in pixels."
+                },
+                "ImageHeight": {
+                    "type": "integer",
+                    "default": -1,
+                    "description": "The height of the page image in pixels."
+                },
+                "ImageBase64": {
+                    "type": "string",
+                    "description": "Base64-encoded page image data. This property is required by the ComicBookJson adaptation of ComicInfo 2.1."
+                }
+            },
+            "required": [
+                "Image",
+                "ImageBase64"
+            ],
+            "description": "Information describing a comic page and its embedded image."
+        },
+        "ArrayOfComicPageInfo": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/ComicPageInfo"
+            },
+            "description": "The collection of pages belonging to the comic."
+        }
+    }
+}
